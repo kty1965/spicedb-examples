@@ -1,0 +1,15 @@
+/** user represents a user */
+definition user {}
+
+/** document represents a document with access control */
+definition document {
+  /** reader indicates that the user is a reader on the document */
+  relation reader: user
+}
+
+definition group {
+  /**
+    * member can include both users and *the set of members* of other specific groups.
+    */
+  relation member: user | group#member
+}
